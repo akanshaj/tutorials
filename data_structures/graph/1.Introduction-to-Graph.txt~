@@ -1,0 +1,66 @@
+Graphs
+======
+Graph is a data structure that consists of following two components:
+1. Finite set of vertices (Nodes)
+2. Finite set of ordered pair of form (u, v) (Edges)
+
+Graphs are used to implement the undirected and directed graph concepts from
+mathematics.
+
+The edge may contain weight / value / cost.
+
+Graphs are used to represent telephone networks, social networks, flight
+vectors for airlines, railway network, etc.
+
+Operations on graph
+===================
+
+1. adjacent(G, x, y) : if edge from x to y exists
+2. neighbors(G, x) : list all vertices to which there is an edge from x
+3. add_vertex(G, x) : adds the vertex x
+4. remove_vertex(G, x) : removes the vertex x
+5. add_edge(G, x, y) : adds edge from x to y
+6. remove_edge(G, x, y) : removes edge from x to y
+7. get_vertex_value(G, x) : return value associated with the vertex x
+8. set_vertex_value(G, x, v) : set the value associated with the vertex x to v
+9. get_edge_value(G, x, y) : returns the weight of edge from x to y
+10. set_edge_value(G, x, y, v) : set the weight of edge from x to y to v
+
+Representations of graph
+========================
+
+1. Adjacency list
+	- vertices are stored as list and every vertex stores a list of
+	  adjacent vertices
+
+2. Adjacency Matrix
+	- stored as 2-D array, with values set to edge weight or 1 or 0
+	  representing no edge or edge respectively
+
+Adjacency list are generally preferred because they efficiently represent
+sparse graphs.
+
+(Sparse and Dense Graph : In maths, a dense graph is a graph in which the
+number of edges is close to the maximal number of edges. The opposite, a graph
+with only a few edges is a sparse graph.)
+
+An adjacency matrix is preferred if the graph is dense, that is the number of
+edges |E| is close to the number of vertex squared |V^2|
+
+Graph traversal
+===============
+Graph traversal refers to the process of visiting each vertex in graph.
+
+* Unlike tree traversal, graphs require visited nodes to be stored else you
+  can get stuck in infinite traversal loop.
+
+Following two algorithms are available for graph traversal:
+
+1. Depth First Search (DFS)
+	- for traversing finite graphs
+	- stack is used
+
+2. Breadth First Serach (BFS)
+	- Queue is used
+	- This is often used to find the shortest path from one vertex to
+	  another  

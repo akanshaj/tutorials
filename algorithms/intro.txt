@@ -1,0 +1,16 @@
+Algorithms
+
+An algorithm is a finite set of instructions that if followed will accomplish
+some task.
+
+Algorithm has following 5 characteristics :
+
+1. Input : requies some input
+2. Ouput : always produces correct output
+3. Definite steps : each step should be clear
+4. Finiteness : should always terminate after finite number of steps
+4. Effectiveness : Solution should be effective
+
+We select best algorithm based on its analysis. We do this analysis based on:
+1. Time complexity
+2. Space complexity

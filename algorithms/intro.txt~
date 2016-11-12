@@ -1,0 +1,14 @@
+Algorithms
+
+An algorithm is a finite set of instructions that if followed will accomplish
+some task.
+
+Algorithm has following 5 
+
+1. Input : requies some input
+2. Ouput : always produces correct output
+3. Definite steps : Each step should be clear
+4. Finiteness	: Should always terminate with correct output after finite
+number of steps
+4. Effectiveness : Solution should be effective
+

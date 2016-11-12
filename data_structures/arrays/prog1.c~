@@ -1,0 +1,65 @@
+/*
+ * Program to implement static array and its operations
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 5
+
+int main(void)
+{
+	int array[MAX];
+	int size = 0;		// how many values are there in array
+	int option;
+	int temp;		// to hold temporary variables
+	int ctr, i;
+
+	do {
+		printf("What do you want to do ?\n");
+		printf("1 - Insertion\n");
+		printf("2 - Deletion\n");
+		printf("3 - Searching\n");
+		printf("4 - Display array\n");
+		printf("5 - Exit\n");
+		scanf("%d", &option);
+
+		switch(option) {
+			case 1: printf("Enter the value you want to insert :");
+				scanf("%d", &temp);
+				if(size < MAX) {
+					array[size] = temp;
+					size++;
+				} else {
+					printf("Sorry. Array is full.\n");
+				}
+				break;
+
+			case 2: printf("Enter the item you want to delete ?  :");
+				scanf("%d", &temp);
+				for(ctr = 0; ctr < size; ctr++) {
+					if(array[ctr] == temp) {
+						for(i = ctr + 1; i < size; i++) {
+							array[i - 1] = array[i];
+						}
+						break;
+					}
+				}
+				break;
+			case 3:
+				break;
+			case 4: printf("Array is :\n");
+				for(ctr = 0; ctr < size; ctr++) {
+					printf("%d \t", array[ctr]);
+				}
+				printf("\n");
+				break;
+			case 5: exit(0);
+				break;
+			default:
+				printf("Invalid option. Select again.\n");
+		}
+
+	} while (option != 5);
+
+	return 0;
+}

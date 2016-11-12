@@ -1,0 +1,16 @@
+Arrays
+======
+
+- Linear data structure
+- Data is stored in continous memory locations
+- Will always store data of same data type
+
+Operations
+==========
+
+1. Inserting value in array
+2. Deleting value from array
+3. Traversing an array
+4. Searching an array
+5. Sorting an array
+
