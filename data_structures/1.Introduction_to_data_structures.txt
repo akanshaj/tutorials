@@ -15,7 +15,7 @@ by ADT.
 Example : B-Tree is a data structure used by relational databases for indexing
 and hash tables is another data structure used by compliers.
 
-Types of data structures
+Classification of data structures
 ========================
 
 1. Simple Data Structures
