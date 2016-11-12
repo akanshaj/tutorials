@@ -1,0 +1,41 @@
+Network Layer
+=============
+
+Network layer is responsible for host to host communication. It provides
+services to Transport layer and receives services from Data Link layer.
+
+Network layer provides two services :
+1) Packetizing
+2) Routing and Forwarding
+
+Packetizing
+===========
+At network layer, the payload is received from above layer, header containing
+the source, destination address and some other information is added and the
+packet is given to the data link layer. 
+The source cannot change the content of payload unless it is too large for
+delivery and needs to be fragmented. At the destination, the network layer has
+to wait until all the fragments arrive.
+The routers are not allowed to change the source or the destination address.
+
+Routing and Forwarding
+======================
+Network layer is responsible for routing the packet from its source to the
+destination. There is more than one route from the source to the destination.
+The network layer is responsible for finding the best one among these possible
+routes. This decision is done by routing protocols which maintain routing
+tables.
+
+Routing is the process of using routing protocols to maintain routing tables.
+Where as forwarding is the process of using these tables and actually
+forwarding the packet when it comes to the router.
+
+Role of Network layer in other services:
+- Error control : Error detection and correction in payload is inefficient at
+  network layer because data may be fragmented. But checksum is added to
+header to know about its corruption. 
+- Flow control : No flow control in network layer
+- Congestion control : No congestion control in network layer
+- Quality of Service : No QoS in network layer
+- Security : By converting connectionless to connection oriented by using
+  IPSec
