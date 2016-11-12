@@ -1,0 +1,95 @@
+Introduction to Data Link Layer
+===============================
+
+The TCP/IP suite does not define any protocol in the data link or physical layer. Hence, there are several standard protocols in market today.
+
+Communication at data link layer is node to node. The end hosts and routers are called nodes and the network between is called link. Data link layer provides the following four services:
+
+1) Framing
+2) Flow control
+3) Error control
+4) Congestion control
+
+Framing : The datagrams (data packets) received from network layer are to be converted into frames before sending it to the next node. Different data link layers have different formats for framing. A packet at the data link layer is called a frame.
+Flow control : how fast the frames should be sent so that receiving node is not overloaded with frames.
+Error control : error detection and correction in frames
+Congestion control : congestion at a node needs to be reported to sending nodes
+
+The link may be point-to-point or a broadcast link that is dedicated to the two devices or shared between several devices.
+
+For better understanding, data link layer is divided into two sublayers:
+1) Data Link Control (DLC)
+2) Media Access Control (MAC)
+
+Data Link Control (DLC) deals with all issues common to both point-to-point and broadcast links. Media Access Control (MAC) deals only with issues specific to broadcast links.
+
+Link Layer Addressing
+=====================
+
+A link layer address is called a Link Address / Physical Address / MAC Address. Every host knows about its MAC address and learns about MAC of other (nodes) using ARP (Address Resolution Protocol).
+
+Example of MAC address : A3:34:45:11:92:F1
+MAC address is of 48 bits or 6 bytes. It is generally represented in HEX format.
+
+Address can be of three types :
+1) UNICAST - 48 bits HEX
+2) MULTI-CAST - 2nd digit should be even
+3) BROADCAST - FF:FF:FF:FF:FF:FF that is all 48 bits set to 1
+
+Frame
+=====
+A data link layer frame is shown below:
+
+ --------------------------------------------
+| MAC (D) | MAC (S) | IP (S) | IP (D) | DATA |
+ --------------------------------------------
+
+MAC (D) - Destination MAC address
+MAC (S) - Source MAC address
+IP (S) - Source IP address
+IP (D) - Destination IP address
+
+MAC address will be changed at every hop (node). For IP address the source address comes before the destination address and for the link layer address the destination address comes before the source address. The destination MAC address is determinted by using the ARP (Address Resolution Protocol).
+
+Address Resolution Protocol (ARP)
+=================================
+
+ARP maps the IP address to corresponding MAC address. ARP belongs to network layer. Working of ARP is as follows:
+
+1) Sender broadcasts an ARP request to find receiver's MAC address
+2) Receiver sends a reply with its MAC address to the sender. Receiver uses unicasting while sending the ARP reply.
+
+Each host maintains is ARP table which maps IP to MAC address. On LINUX arp table can be printed out by using "arp -a" command.
+
+The format of an ARP packet is given below. ARP packet has a size of 28 bytes and has following fields :
+
+1) Hardware Type - 2 bytes - 0x0001 for Ethernet
+2) Protocol Type - 2 bytes - 0x0800 for IP
+3) Hardware Address size - 1 byte - Example : 06 for MAC address
+4) Protocol Address size - 1 byte - Example : 04 for IPv4 address
+5) Source MAC address - 6 bytes
+6) Source IP address - 4 bytes
+7) Destination MAC address - 6 bytes
+8) Destination IP address - 4 bytes
+
+ ------------------------------------------------------
+|                                                      |
+|       Hardware Type         |      Protocol Type     |
+ ------------------------------------------------------
+|                                                      |
+| H/W Size   |  Protocol Size |         OpCode         |
+ ------------------------------------------------------
+|						       |
+|		Source MAC Address                     |
+ ------------------------------------------------------
+|						       |
+|		Source IP Address                      |
+ ------------------------------------------------------
+|						       |
+|	   Destination MAC Address                     |
+ ------------------------------------------------------
+|                                                      |
+|	   Destination IP Address                      |
+ ------------------------------------------------------
+
+
