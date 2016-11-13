@@ -1,11 +1,29 @@
 Assignment - 4
 ==============
 
-#1
+-- Adding a new column
 ALTER TABLE SALESPEOPLE ADD FNAME VARCHAR(100);
 
-#2 - Add primary key to column
+-- Add primary key to column
 ALTER TABLE CUSTOMERS ADD PRIMARY KEY(CNUM);
 
-# Drop primary key from column
+-- Drop primary key from column
 ALTER TABLE CUSTOMERS DROP PRIMARY KEY;
+
+-- Add NOT NULL constraint
+ALTER TABLE ORDERS MODIFY AMT NOT NULL;
+
+-- Add UNIQUE constraint
+ALTER TABLE CUSTOMERS ADD CONSTRAINT CNAME UNIQUE(CNAME);
+
+-- Rename a column
+ALTER TABLE SALESPOPLE RENAME COLUMN SNUM TO SALESPOPLENAME;
+
+-- Rename the table
+ALTER TABLE SALESPEOPLE RENAME TO SPTABLE;
+
+-- Alter city size
+ALTER TABLE CUSTOMERS MODIFY CITY VARCHAR(80);
+
+-- Drop table
+DROP TABLE 
