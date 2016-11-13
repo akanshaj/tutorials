@@ -1,0 +1,11 @@
+Assignment - 4
+==============
+
+#1
+ALTER TABLE SALESPEOPLE ADD FNAME VARCHAR(100);
+
+#2 - Add primary key to column
+ALTER TABLE CUSTOMERS ADD PRIMARY KEY(CNUM);
+
+# Drop primary key from column
+ALTER TABLE CUSTOMERS DROP PRIMARY KEY;

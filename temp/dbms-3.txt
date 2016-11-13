@@ -1,0 +1,35 @@
+Assignment 3
+============
+
+#1 - Using substitution variable
+INSERT INTO SALESPEOPLE VALUES(&CNUM, '&CNAME', '&CITY', &COMM);
+
+#2 - To create copy of table without data
+CREATE TABLE SALES1 AS (SELECT * FROM SALESPEOPLE WHERE 1 = 0);
+
+#2 - To create copy of table with data
+CREATE TABLE SALES1 AS (SELECT * FROM SALESPEOPLE);
+
+#3 - Difference between DELETE, DROP and TRUNCATE
+
+DELETE - is to used to delete a row(s) from table
+DELETE FROM SALESPEOPLE WHERE CITY = 'LONDON'
+
+DROP - is to used to delete the table from database
+DROP TABLE SALES1;
+
+TRUNCATE - is to used empty the table
+TRUNCATE TABLE SALES2;
+
+#4
+DELETE FROM SALESPEOPLE WHERE SNAME = 'PEEL';
+
+#5
+UPDATE CUSTOMERS SET SNUM = (SELECT SNUM FROM SALESPEOPLE WHERE SNAME = 'MOTIKA') WHERE 
+  SNUM = (SELECT SNUM FROM SALESPEOPLE WHERE SNAME = 'SERRES');
+  
+#6
+UPDATE SALESPEOPLE SET COMM = COMM + 0.20 * COMM WHERE CITY = 'LONDON';
+
+#7
+UPDATE SALESPEOPLE SET CITY = 'PHONEIX' WHERE SNAME = 'AXELORD';
