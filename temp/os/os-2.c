@@ -1,19 +1,27 @@
 /* 
-    Implement FCFS and SJFS algorithm
+    Implement FCFS and SJF algorithm
 */
 #include<stdio.h>
  
 int main(void)
 {
-    int burst[20], process[20], wait[20], turn[20], sort_burst[20];
-    int temp, n, min, i, j;
+    int burst[20]; //hold burst time of all processes 
+    int process[20]; // hold process number
+    int wait[20]; // hold wait time of processes
+    int turn[20]; // hold turn out time of processes
+    int sort_burst[20]; // hold sorted burst time of processes
+    int temp; // temp variable for sorting
+    int n; // number of processes
+    int min; // hold min value while sorting
+    int i, j; // loop counters
     float total = 0, avg_wait = 0, avg_turn = 0;
-    
+
+    // prompt for number of processes
     printf("Enter total number of processes:");
     scanf("%d",&n);
  
     printf("Enter Process Burst Time\n");
-    
+    // loop to get burst time of every process   
     for(i = 0; i < n; i++)
     {
         printf("Process[%d]: ", i + 1);
@@ -25,6 +33,7 @@ int main(void)
     // implementation of SJF algorithm
     printf("==============\nSJF ALGORITHM\n==============\n");	
 
+    // bubble sort to sort the burst time of processes
     // sorting the array to choose the shortest job
 	for(i = 0; i < n - 1; i++)
 	{
@@ -40,13 +49,14 @@ int main(void)
 		}
 	}
 	
-	wait[0] = 0; // waiting time for first process is zero
+    wait[0] = 0; // waiting time for first process is zero
+
     // calculate waiting time
     for(i = 1; i < n; i++)
     {
         wait[i] = 0;
         for(j = 0; j < i; j++) {
-            wait[i] += sort_burst[j];
+            wait[i] = wait[i] +  sort_burst[j];
         }
         total += wait[i];
     }
@@ -62,15 +72,14 @@ int main(void)
         printf("\np%d\t\t  %d\t\t    %d\t\t\t%d",process[i],sort_burst[i],wait[i],turn[i]);
     }
  
-    avg_turn=(float)total/n;     //average turnaround time
-    printf("\nAverage Waiting Time=%f",avg_wait);
-    printf("\nAverage Turnaround Time=%f\n",avg_turn);
+    avg_turn = (float) total/ (float) n;  //average turnaround time
+    printf("\nAverage Waiting Time=%f", avg_wait);
+    printf("\nAverage Turnaround Time=%f\n", avg_turn);
 	
-
-
-	// implementation of FCFS
-	printf("\n==============\nFCFS ALGORITHM \n==============\n");	
+    // implementation of FCFS
+    printf("\n==============\nFCFS ALGORITHM \n==============\n");	
     wait[0] = 0;
+    
     //calculate waiting time
     for(i=1;i<n;i++)
     {
@@ -86,12 +95,12 @@ int main(void)
     printf("\nProcess\t    Burst Time    \tWaiting Time\tTurnaround Time");
     for(i=0;i<n;i++)
     {
-        turn[i]=burst[i]+wait[i];     //calculate turnaround time
-        total+=turn[i];
+        turn[i] = burst[i]+wait[i];     //calculate turnaround time
+        total += turn[i];
         printf("\np%d\t\t  %d\t\t    %d\t\t\t%d",process[i],burst[i],wait[i],turn[i]);
     }
  
-    avg_turn=(float)total/n;     //average turnaround time
-    printf("\nAverage Waiting Time=%f",avg_wait);
-    printf("\nAverage Turnaround Time=%f\n",avg_turn);
+    avg_turn = (float) total / (float) n;     //average turnaround time
+    printf("\nAverage Waiting Time=%f", avg_wait);
+    printf("\nAverage Turnaround Time=%f\n", avg_turn);
 }
